@@ -1,11 +1,8 @@
 ---
-title: API Reference
+title: My Lenio Custom App API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+  - code
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -25,53 +22,63 @@ meta:
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Custom App API! You can use our API reference to implements your endpoints, which help to integrate your app with Mylenio.
 
 We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
 
-> To authorize, use this code:
+The API has all calls authenticated through user and password(Token). These values are included in the headers.
 
-```ruby
-require 'kittn'
+The first thing you need to do is get the credentials to make authenticated calls to the API. For this, in MyLenio, Access your custom application, go to the API configuration section and copy the "API User" and "APi Password" fields
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+> To authorize incoming request, validate these headers below:
+
+```
+   //Authentication values in header
+   {
+    "X-AdminUser-Email": "api.user...@mylenio.com",
+    "X-AdminUser-Token" : "..."
+   }
 ```
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`X-AdminUser-Email: user`
+`X-AdminUser-Token: token`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must get <code>email</code> and <code>token</code> values from the Custom App you previously created in MyLenio.
 </aside>
 
-# Kittens
+# API Status
+
+# Users
+## Create a new user
+## List users
+## Update an existing user
+
+## Delete an existing user
+
+# Invitations
+
+
+# Resources
+
+## Define a category
+## Define permissions roles
+
+## Create a resource
+## List resources
+## Update an existing resource
+
+## Delete an existing resource
+
+##
+## Delete an existing resource
+## Delete an existing resource
+
+
+
 
 ## Get All Kittens
 
@@ -82,24 +89,9 @@ api = Kittn::APIClient.authorize!('meowmeowmeow')
 api.kittens.get
 ```
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
 
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
 
 > The above command returns JSON structured like this:
 
@@ -195,32 +187,9 @@ ID | The ID of the kitten to retrieve
 
 ## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
 
 > The above command returns JSON structured like this:
 
