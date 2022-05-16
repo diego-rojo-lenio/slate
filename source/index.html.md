@@ -2,21 +2,22 @@
 title: My Lenio Custom App API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  + code
+  - code
 
 toc_footers:
-  + <a href='#'>Sign Up for a Developer Key</a>
-  + <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
-  + errors
+  - errors
+
 
 search: true
 
 code_clipboard: true
 
 meta:
-    name: description
+  - name: description
     content: Documentation for the Custom App API
 
 ---
@@ -140,6 +141,8 @@ email  | User email.
 
 <code> DELETE /users/{id} </code>
 
+> Delete User - Response Body
+
 ```json
       {
         "data": {
@@ -155,7 +158,7 @@ Parameter |  Description
 --------- |  -----------
 id  | User Id.
 
-> Delete User - Response Body
+
 
 
 
@@ -253,7 +256,7 @@ users | <code>Array</code> User Ids to add.
 
 ### HTTP Request
 
-<code> DELETE /resources/{id}/permissions/{role_id}?users=[{users}] </code>
+<code> DELETE /resources/{id}/permissions/{role_id}?users={users} </code>
 
 >  Remove users from a resource - Response Body
 
@@ -282,6 +285,8 @@ users | <code>Array</code> User Ids to add.
 
 ### HTTP Request
 <code> GET /resources </code>
+
+>  List resources - Response Body
 
 ```json
   {
