@@ -20,7 +20,7 @@ For failure results or invalid request, data property is not present. Instead th
 }
 ```
 
-<aside class="notice">
+<aside class="warning">
     In case of error, don't forget to include the error property. Otherwise, MiLenio will determine that the request was valid.
 </aside>
 

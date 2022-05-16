@@ -50,6 +50,62 @@ The first thing you need to do is get the credentials to make authenticated call
 You must get <code>email</code> and <code>token</code> values from the Custom App you previously created in MyLenio.
 </aside>
 
+
+
+
+
+# Basic
+
+## API Version
+
+The urls are generally formed as follows
+
+`https://my.custom.api.com/api/[version]/[path]`
+
+### Payload Parameters
+
+Parameter |  value
+--------- |  -----------
+version   | <code>v1</code>
+path      | <code>{request_path}</code>
+
+## Headers
+
+All request use application/json as content type
+
+> Basic header to make requests:
+
+```
+   {
+    ""Content-type" : "application/json" ,
+    ...
+   }
+```
+
+
+## Error Handling
+
+See [Errors](#errors) section</a>
+
+## Paginate Results
+
+Paginating your results will be <code>optional</code> . In case you want to paginate your responses, you need to include a <code>links</code> field in the root of the JSON object
+
+> A sample response with pages
+
+```json
+{
+ "data": [...],
+ "links":
+  {
+   "self":"https://my.custom.api.com/api/v1/resources?page%5Bnumber%5D=2&page%5Bsize%5D=25",
+   "first":"https://my.custom.api.com/api/api/v1/resources?page%5Bnumber%5D=1&page%5Bsize%5D=25",
+   "prev":"https://my.custom.api.com/api/api/v1/resources?page%5Bnumber%5D=1&page%5Bsize%5D=25",
+   "next": null,
+   "last":"https://my.custom.api.com/api/api/v1/resources?page%5Bnumber%5D=2&page%5Bsize%5D=25"}
+  }
+```
+
 # API Status
 
 API Status method should be a quick test to check if the API is currently live and the basic configuration parameters are setted properly
