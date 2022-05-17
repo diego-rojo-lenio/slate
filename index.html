@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="Documentation for the Kittn API"
+            content="Documentation for the Custom App API"
         >
-    <title>API Reference</title>
+    <title>My Lenio Custom App API Reference</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;code&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -303,12 +303,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-15e94535.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="code">code</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -317,21 +314,97 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#add-your-custom-app-to-my-lenio" class="toc-h2 toc-link" data-title="Add your custom app to My Lenio">Add your custom app to My Lenio</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#basic" class="toc-h1 toc-link" data-title="Basic">Basic</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#api-version" class="toc-h2 toc-link" data-title="API Version">API Version</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#headers" class="toc-h2 toc-link" data-title="Headers">Headers</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#error-handling" class="toc-h2 toc-link" data-title="Error Handling">Error Handling</a>
+                  </li>
+                  <li>
+                    <a href="#paginate-results" class="toc-h2 toc-link" data-title="Paginate Results">Paginate Results</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api-status" class="toc-h1 toc-link" data-title="API Status">API Status</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-users" class="toc-h2 toc-link" data-title="List users">List users</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-user" class="toc-h2 toc-link" data-title="Create a new user">Create a new user</a>
+                  </li>
+                  <li>
+                    <a href="#delete-an-existing-user" class="toc-h2 toc-link" data-title="Delete an existing user">Delete an existing user</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#invitations" class="toc-h1 toc-link" data-title="Invitations">Invitations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#invited-status" class="toc-h2 toc-link" data-title="Invited Status">Invited Status</a>
+                  </li>
+                  <li>
+                    <a href="#list-invitations" class="toc-h2 toc-link" data-title="List Invitations">List Invitations</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-invitation" class="toc-h2 toc-link" data-title="Create a new invitation">Create a new invitation</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-an-existing-invitation" class="toc-h2 toc-link" data-title="Cancel an existing invitation">Cancel an existing invitation</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#resources" class="toc-h1 toc-link" data-title="Resources">Resources</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#define-a-category" class="toc-h2 toc-link" data-title="Define a category">Define a category</a>
+                  </li>
+                  <li>
+                    <a href="#define-permission-roles" class="toc-h2 toc-link" data-title="Define permission roles">Define permission roles</a>
+                  </li>
+                  <li>
+                    <a href="#add-users-to-a-resource" class="toc-h2 toc-link" data-title="Add users to a resource">Add users to a resource</a>
+                  </li>
+                  <li>
+                    <a href="#remove-users-from-a-resource" class="toc-h2 toc-link" data-title="Remove users from a resource">Remove users from a resource</a>
+                  </li>
+                  <li>
+                    <a href="#list-resources" class="toc-h2 toc-link" data-title="List resources">List resources</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-new-resource" class="toc-h2 toc-link" data-title="Create a new resource">Create a new resource</a>
+                  </li>
+                  <li>
+                    <a href="#update-an-existing-resource" class="toc-h2 toc-link" data-title="Update an existing resource">Update an existing resource</a>
+                  </li>
+                  <li>
+                    <a href="#delete-an-existing-resource" class="toc-h2 toc-link" data-title="Delete an existing resource">Delete an existing resource</a>
                   </li>
               </ul>
           </li>
@@ -348,250 +421,735 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Custom App API! You can use our API reference to implement your endpoints, which help to integrate your app with Mylenio.</p>
+<h2 id='add-your-custom-app-to-my-lenio'>Add your custom app to My Lenio</h2>
+<p>Firstly, add your app to MyLenio as a Custom APP</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<ol>
+  <li>Navigate to <code>Settings</code> -> <code>Apps</code></li>
+  <li>Go to <code>Custom Apps</code> section and click on<code>Add New</code></li>
+  <li>Fill <code>App configuration</code> fields as you need </li>
+  <li>To integrate your API, go to <code>External API integration</code> and check <code>API managed by MyLenio</code></li>
+</ol>
+<h3 id='custom-api-fields'>Custom API fields</h3>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Admin email</td>
+<td>This user will be skipped when resyncing resources in MyLenio.</td>
+</tr>
+<tr>
+<td>Endpoint</td>
+<td>Basic URL of your API. i.e. https://my.custom.api.com/api</td>
+</tr>
+<tr>
+<td>Members link</td>
+<td>External link to access your user list. It is supposed authenticated and managed by your app</td>
+</tr>
+<tr>
+<td>User Creation strategy</td>
+<td>Should be set as <code>Direct Creation</code> instead you want to support invitations</td>
+</tr>
+</tbody></table>
 <h1 id='authentication'>Authentication</h1>
+<p>The API has all calls authenticated through user and password(Token). These values are included in the headers.</p>
+
+<p>The first thing you need to do is get the credentials to make authenticated calls to the API. For this, in MyLenio, Access your custom application, go to the API configuration section and copy the &quot;API User&quot; and &quot;APi Password&quot; fields.</p>
+
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>To authorize incoming requests, validate these headers below:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight plaintext"><code>   //Authentication values in header
+   {
+    "X-AdminUser-Email": "api.user...@mylenio.com",
+    "X-AdminUser-Token" : "..."
+   }
 </code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p><code>X-AdminUser-Email: user</code></p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p><code>X-AdminUser-Token: token</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must get <code>email</code> and <code>token</code> values from the Custom App you previously created in MyLenio.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h1 id='basic'>Basic</h1><h2 id='api-version'>API Version</h2>
+<p>The URLs are generally formed as follows</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p><code>https://my.custom.api.com/api/[version]/[path]</code></p>
+<h3 id='payload-parameters'>Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>version</td>
+<td><code>v1</code></td>
+</tr>
+<tr>
+<td>path</td>
+<td><code>{request_path}</code></td>
+</tr>
+</tbody></table>
+<h2 id='headers'>Headers</h2>
+<p>All request use <code>application/json</code> as content type</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
-</code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Basic header to make requests:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight plaintext"><code>   {
+    "Content-type" : "application/json",
+    ...
+   }
+</code></pre></div><h2 id='error-handling'>Error Handling</h2>
+<p>See <a href="#errors">Errors</a> section.</a></p>
+<h2 id='paginate-results'>Paginate Results</h2>
+<p>Paginating your results will be <code>optional</code>. In case you want to paginate your responses, you need to include a <code>links</code> field in the root of the JSON object</p>
+
+<blockquote>
+<p>A sample response with pages</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+ </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+ </span><span class="nl">"links"</span><span class="p">:</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+   </span><span class="nl">"self"</span><span class="p">:</span><span class="s2">"https://my.custom.api.com/api/v1/resources?page%5Bnumber%5D=2&amp;page%5Bsize%5D=25"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"first"</span><span class="p">:</span><span class="s2">"https://my.custom.api.com/api/api/v1/resources?page%5Bnumber%5D=1&amp;page%5Bsize%5D=25"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"prev"</span><span class="p">:</span><span class="s2">"https://my.custom.api.com/api/api/v1/resources?page%5Bnumber%5D=1&amp;page%5Bsize%5D=25"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"last"</span><span class="p">:</span><span class="s2">"https://my.custom.api.com/api/api/v1/resources?page%5Bnumber%5D=2&amp;page%5Bsize%5D=25"</span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
+</span></code></pre></div><h1 id='api-status'>API Status</h1>
+<p>API Status method should be a quick test to check if the API is currently live and the basic configuration parameters are set properly</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code> GET /status </code></p>
+
+<blockquote>
+<p>The method waits for the basic JSON object with <code>200 CODE</code> like this</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>In case of reporting an error</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"error"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"code"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"custom_code_error"</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brief description about the problem"</span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><em>No parameters are required</em></p>
+<h1 id='users'>Users</h1><h2 id='list-users'>List users</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><code> GET /users </code></p>
+
+<blockquote>
+<p>List Users - Response body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 1"</span><span class="w">
+      </span><span class="p">},</span><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><em>No parameters are required</em></p>
+<h2 id='create-a-new-user'>Create a new user</h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><code> POST /users </code></p>
+
+<blockquote>
+<p>Create User - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 2"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Create User - Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='payload-parameters-2'>Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>User name.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>User email.</td>
+</tr>
+</tbody></table>
+<h2 id='delete-an-existing-user'>Delete an existing user</h2><h3 id='http-request-4'>HTTP Request</h3>
+<p><code> DELETE /users/{id} </code></p>
+
+<blockquote>
+<p>Delete User - Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='path-parameters'>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>User Id.</td>
+</tr>
+</tbody></table>
+<h1 id='invitations'>Invitations</h1>
+<p>You might deal with invitations when creating or removing users from a workspace
+whether you want to integrate Mylenio with your application or want to build
+an intermediate app to integrate with another SaaS</p>
+
+<p>The simplest way is to have a direct creation user strategy.
+This means MyLenio will identify all users as Active.</p>
+
+<p>There are two strategies to support invitations</p>
+
+<ul>
+  <li><code>Invited Status</code> - Using an additional field <code>status</code> in user model </li>
+  <li><code>With Invitations</code> Using a dedicated endpoint for invitations</li>
+</ul>
+
+<aside class='notice'>
+  When using <code>Direct creation</code> strategy invitation endpoints and user status fields are not needed
+</aside>
+<h2 id='invited-status'>Invited Status</h2>
+<p>Add and additional field to your response in <a href="#list-users">List Users</a></p>
+
+<blockquote>
+<p>List Users (Invited Status) - Response body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invited"</span><span class="w">
+      </span><span class="p">},</span><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class='notice'>
+  It it possible to define as many statuses as you need. i.e "invited" , "active" ,  "other". However, the most important one for Mylenio is <code>active</code>.
+</aside>
+<h2 id='list-invitations'>List Invitations</h2><h3 id='http-request-5'>HTTP Request</h3>
+<p><code> GET /invitations </code></p>
+
+<blockquote>
+<p>List invitations - Response body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Some user"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"some.user@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"invited"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"role"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"inviter"</span><span class="p">:</span><span class="s2">"admin@example.com"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Another user"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="s2">"another.user@example@example.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"invited"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"role"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"inviter"</span><span class="p">:</span><span class="s2">"admin@example.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><em>No parameters are required</em></p>
+
+<aside class='notice' >
+  It it possible to define as many statuses as you need. i.e "invited" , "accepted" , "expired", "failed", "other". However, the most important one for Mylenio is <code>accepted</code>
+</aside>
+<h2 id='create-a-new-invitation'>Create a new invitation</h2><h3 id='http-request-6'>HTTP Request</h3>
+<p><code> POST /invitations </code></p>
+
+<blockquote>
+<p>Create Invitation - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"inviter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@example.com"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Create User - Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"inviter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@example.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='payload-parameters-3'>Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>User name.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>User email.</td>
+</tr>
+<tr>
+<td>inviter</td>
+<td><code>Optional</code> Inviter user.</td>
+</tr>
+</tbody></table>
+<h2 id='cancel-an-existing-invitation'>Cancel an existing invitation</h2><h3 id='http-request-7'>HTTP Request</h3>
+<p><code> DELETE /invitations/{id} </code></p>
+
+<blockquote>
+<p>Delete invitation - Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2@example.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User 2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"inviter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin_email"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='path-parameters-2'>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Invitation Id.</td>
+</tr>
+</tbody></table>
+<h1 id='resources'>Resources</h1><h2 id='define-a-category'>Define a category</h2>
+<p>Resource categories are the objects on which permissions will be assigned. i.e. Folder, repositories,
+boards, channels, etc.</p>
+
+<p>From MyLenio just need to follow the steps below:
+<ol>
+<li>Access your custom app. </li>
+<li>Add a new category. </li>
+<li>Check <code>API managed by Lenio</code> field. </li>
+<li>Speficy the category endpoint field. i.e &quot;/resources&quot;, &quot;/boards&quot;, &quot;/pages&quot;, etc. </li>
+</ol></p>
+
+<p>In your API implementation you must implement these groups of endpoints according to your
+category endpoint field.</p>
+
+<table><thead>
+<tr>
+<th>Endpoint</th>
+<th>Url</th>
+<th>Example with &quot;/resources&quot;</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Create/List</td>
+<td><code>/{category_endpoint}</code></td>
+<td><code>/resources </code></td>
+</tr>
+<tr>
+<td>Update</td>
+<td><code>/{category_endpoint}/{id}/update</code></td>
+<td><code>/resources/{id}/update </code></td>
+</tr>
+<tr>
+<td>Delete</td>
+<td><code>/{category_endpoint}/{id}</code></td>
+<td><code>/resources/{id}/ </code></td>
+</tr>
+<tr>
+<td>Permission Roles</td>
+<td><code>/roles/{category_endpoint}</code></td>
+<td><code>/roles/resources </code></td>
+</tr>
+<tr>
+<td>List permissions</td>
+<td><code>/{category_endpoint}/{id}/permissions</code></td>
+<td><code>/resources/{id}/permissions </code></td>
+</tr>
+<tr>
+<td>Edit permissions</td>
+<td><code>/{category_endpoint}/{id}/permissions/{role_id}</code></td>
+<td><code>/resources/{id}/permissions/{role_id}</code></td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+The the following specifications will use "/resource" as <code>category_endpoint</code>
+</aside>
+
+<aside class="warning">
+Make sure of not using "/invitations" or "/users" as <code>category_endpoint</code>.
+</aside>
+<h2 id='define-permission-roles'>Define permission roles</h2>
+<p>Permission levels or roles need to be provided through an endpoint. This will provide greater flexibility when adding new roles dynamically.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code> GET /roles/resources </code></p>
+
+<blockquote>
+<p>List Roles - Response body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Admin"</span><span class="p">,</span><span class="w"> </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"ADM"</span><span class="p">,</span><span class="w"> </span><span class="nl">"priority"</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Write"</span><span class="p">,</span><span class="w"> </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"W"</span><span class="p">,</span><span class="w"> </span><span class="nl">"priority"</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Read"</span><span class="p">,</span><span class="w"> </span><span class="nl">"code"</span><span class="p">:</span><span class="s2">"R"</span><span class="p">,</span><span class="w"> </span><span class="nl">"priority"</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><em>No parameters are required</em></p>
+<h2 id='add-users-to-a-resource'>Add users to a resource</h2><h3 id='http-request-9'>HTTP Request</h3>
+<p><code> PUT /resources/{id}/permissions/{role_id} </code></p>
+
+<blockquote>
+<p>Add users to a resource - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"10"</span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Add users to a resource - Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='path-parameters-3'>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Resource Id.</td>
+</tr>
+<tr>
+<td>role_id</td>
+<td>Permission role id.</td>
+</tr>
+</tbody></table>
+<h3 id='payload-parameters-4'>Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>users</td>
+<td><code>Array</code> User Ids to add.</td>
+</tr>
+</tbody></table>
+<h2 id='remove-users-from-a-resource'>Remove users from a resource</h2><h3 id='http-request-10'>HTTP Request</h3>
+<p><code> DELETE /resources/{id}/permissions/{role_id}?users={users} </code></p>
+
+<blockquote>
+<p>Remove users from a resource - Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='path-parameters-4'>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Resource Id.</td>
+</tr>
+<tr>
+<td>role_id</td>
+<td>Permission role id.</td>
+</tr>
+</tbody></table>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>users</td>
+<td><code>Array</code> User Ids to add.</td>
+</tr>
+</tbody></table>
+<h2 id='list-resources'>List resources</h2><h3 id='http-request-11'>HTTP Request</h3>
+<p><code> GET /resources </code></p>
+
+<blockquote>
+<p>List resources - Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"My new resource"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"is_archived"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"metadata"</span><span class="p">:{},</span><span class="w">
+      </span><span class="nl">"is_archived"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:{},</span><span class="w">
+      </span><span class="nl">"external_link"</span><span class="p">:</span><span class="s2">"http://smith-gulgowski.co/merle_hartmann"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"logo_url"</span><span class="p">:</span><span class="err">nil</span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"resource"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w">
+     </span><span class="p">{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Namfix"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Et et occaecati quis."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_archived"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"metadata"</span><span class="p">:{},</span><span class="w">
+      </span><span class="nl">"external_link"</span><span class="p">:</span><span class="s2">"http://greenholt.io/denna"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"logo_url"</span><span class="p">:</span><span class="err">nil</span><span class="p">}}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<p><em>No parameters are required</em></p>
+<h2 id='create-a-new-resource'>Create a new resource</h2><h3 id='http-request-12'>HTTP Request</h3>
+<p><code> POST /resources </code></p>
+
+<blockquote>
+<p>Create Resource - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="p">{</span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My new resource"</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="w"> </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Create Resource - Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"My new resource"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_archived"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"metadata"</span><span class="p">:{},</span><span class="w">
+    </span><span class="nl">"external_link"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"logo_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2022-05-16T18:08:48.613Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2022-05-16T18:08:48.613Z"</span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='payload-parameters-5'>Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Resource name.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>description</td>
+<td>Resource description.</td>
+</tr>
+</tbody></table>
+<h2 id='update-an-existing-resource'>Update an existing resource</h2>
+<p><code> PUT /resources/{id} </code></p>
+
+<blockquote>
+<p>Update Resource - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My new resource"</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="w"> </span><span class="p">,</span><span class="w">
+        </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nl">"external_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nl">"is_archived"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+
+</span></code></pre></div>
+<blockquote>
+<p>Update resource- Response Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='path-parameters-5'>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Resource Id.</td>
+</tr>
+</tbody></table>
+<h3 id='payload-parameters-6'>Payload Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Resource name.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Resource description.</td>
+</tr>
+<tr>
+<td>is_archived</td>
+<td>Boolean value - Set the resource to Archived/unarchived.</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td><code>Optional</code> Custom JSON will be used by MyLenios.</td>
+</tr>
+<tr>
+<td>external_link</td>
+<td><code>Optional</code> External link set from MyLenio.</td>
+</tr>
+</tbody></table>
+<h2 id='delete-an-existing-resource'>Delete an existing resource</h2><h3 id='http-request-13'>HTTP Request</h3>
+<p><code> DELETE /resources/{id} </code></p>
+
+<blockquote>
+<p>Delete Resource - Request Body</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"My new resource"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_archived"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"metadata"</span><span class="p">:{},</span><span class="w">
+    </span><span class="nl">"external_link"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"logo_url"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2022-05-16T18:08:48.613Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2022-05-16T18:08:48.613Z"</span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='path-parameters-6'>Path Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Resource Id.</td>
 </tr>
 </tbody></table>
 
+<!--
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt; code&gt; </code> blocks to denote code.</aside>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
+-->
 <h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+<p>In order to simplify the error handling all Web API responses return <code>CODE 200</code> and contain a JSON object. This object contains a top-level property <code>data</code> in most of cases.</p>
+
+<p>For failure results or invalid requests, data property is not present. Instead, the JSON object contains an <code>error</code> property set. This error property is an object with attributes <code>code</code> and <code>message</code>.</p>
+
+<blockquote>
+<p>A valid request returns a JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>A not valid request returns a JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"code"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"not_found"</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Requested Object not found"</span><span class="p">},</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<aside class="warning">
+    In case of error, don't forget include the error property. Otherwise, MYLenio will determine that the request was valid.
 </aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The Custom App API uses the following codes:</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
+<th>Http Code</th>
 <th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>200</td>
+<td>Normal Response Code -- Both valid and not valid request.</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized -- API credentials are wrong.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>5xx</td>
+<td>Other error -- An Unknown or unhandled error.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>4xx</td>
+<td>Other error -- An Unknown or unhandled internal error in MyLenio.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="code">code</a>
           </div>
       </div>
     </div>
