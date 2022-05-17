@@ -2,7 +2,7 @@
 
 In order to simplify the error handling all Web API responses return <code>CODE 200</code> and contain a JSON object. This object contains a top-level property <code>data</code> in most of cases.
 
-For failure results or invalid request, data property is not present. Instead the JSON object contains an <code>error</code> property setted. This error property is an object with attributes <code>code</code> and <code>message</code>.
+For failure results or invalid requests, data property is not present. Instead, the JSON object contains an <code>error</code> property set. This error property is an object with attributes <code>code</code> and <code>message</code>.
 
 > A valid request returns a JSON structured like this:
 
@@ -21,7 +21,7 @@ For failure results or invalid request, data property is not present. Instead th
 ```
 
 <aside class="warning">
-    In case of error, don't forget to include the error property. Otherwise, MiLenio will determine that the request was valid.
+    In case of error, don't forget include the error property. Otherwise, MYLenio will determine that the request was valid.
 </aside>
 
 The Custom App API uses the following codes:
